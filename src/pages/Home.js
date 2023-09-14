@@ -7,7 +7,7 @@ import { Howl, Howler } from 'howler';
 import { useNavigate } from "react-router-dom";
 
 export function Home() {
-    let navigate = useNavigate();
+    let navigate = useNavigate(); 
 
     const [isClicked, setIsClicked] = useState(false);
     const [grayness, setGrayness] = useState(15); 

@@ -4,14 +4,15 @@ import {auth, provider} from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
-function Login({setIsAuth}) {
+function Login({setIsAuth, mainUser}) {
     let navigate = useNavigate();
+    console.log(mainUser)
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) =>{
-            const userEmail = result.user.email; 
+            const userEmail = result.user.email;
 
-            if (userEmail === process.env.MAIN_USER) {
+            if (userEmail === mainUser) {
                 localStorage.setItem("isAuth", true);
                 setIsAuth(true);
                 navigate("/")
