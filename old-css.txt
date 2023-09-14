@@ -25,7 +25,6 @@ h1, h2 {
   font-family: 'Chango', sans-serif;
   line-height: 1.2s;
   margin-bottom: -10px; 
-  font-size: 45px;
 }
 
 h3, h4, h5, h6 {
@@ -89,42 +88,35 @@ a:hover {
 
 .homePage {
   width: 100%;
-  padding-top: 20px;
-  color: rgb(220, 240, 71);
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  padding-top: 20px;
+  color: white;
 }
-@font-face {
-  font-family: 'Raleway';
-  src: local('Raleway-Regular'), url('../public/homefont/Raleway-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal; 
-  font-style: normal; 
-}
-.homePage h1, h2 {
-  font-family: 'Raleway', sans-serif;
-  margin-bottom: -10px; 
-  font-size: 65px;
-  letter-spacing: -2px;
-
-}
-
 
 .mainHome {
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
+  height: 368px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   padding-top: 20px;
-  background-color: black;
-  margin: 0;
+  color: white;
 }
-.mainHome .hometext {
-  margin-top: 29%;
-  height: 400px;
-  margin-right: 80px;
-  width: 65%;
+.hometext {
+  width: 40%;
+  height: 200px;
+  margin-left: 25px;
+}
+
+.buttonHomeContainer {
+  width: 100%;
+  height: 100px;
+}
+.hometext .yellowbutton {
+  margin-left: 16px;
+  justify-content: center;
 }
 
 .homeLogo {
@@ -141,92 +133,29 @@ a:hover {
   cursor: crosshair;
 }
 
-.hometext {
-  width: 55%;
-  height: 200px;
-  margin-left: 25px;
+.homeIdeia {
+  width: 30%;
+  height: 350px;
+  margin-right: 25px;
+}
+.ideia {
+  margin-top: -20px;
+  margin-bottom: -10px;
+  z-index: 2;
 }
 
-.homeSliceOne{
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(220, 240, 71);
-  margin: 0;
-  color:black;
+.tip{
+  z-index: 3;
 }
-.homeSliceOne .hometext {
-  margin-top: 29%;
-  height: 400px;
-  width: 55%;
-}
-
-.homeSliceTwo{
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(2, 2, 82);
-  margin: 0;
-  color: rgb(46, 232, 46);
-}
-.homeSliceTwo .hometext {
-  margin-top: 15%;
-  margin-left: 20%;
-  height: 400px;
-}
-
-.homeSliceThree{
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(209, 76, 107);
-  margin: 0;
-  color: rgb(2, 2, 82);
-}
-.homeSliceThree .hometext {
-  margin-top: 13%;
-}
-
-.homeSliceFour{
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(46, 232, 46);
-  color: black;
-  margin: 0;
-}
-.homeSliceFour .hometext {
-  margin-top: 3%;
-  margin-left: 40%;
-  height: 400px;
-}
-
-.ContactArticles{
-  height: 114vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-}
-.ContactArticles .hometext{
-  width: 50%;
-}
-
-.buttonHomeContainer {
-  width: 50%;
-  width: 100vw;
-}
-.postContainerAndTitle{
-  width: 50%;
-  width: 100vw;
-}
-
-
-.hometext .yellowbutton {
-  margin-left: 16px;
-  justify-content: center;
+.tip h6 {
+  margin-top: -20px;
+  margin-left: 250px;
 }
 
 .postsHome {
   margin-top: 35px;
   display: flex;
-  width: 50%;
-  min-height: 600px;
+  min-height: 650px;
   overflow-x: scroll;
   overflow-y: hidden;
   scrollbar-width: none; 
@@ -560,7 +489,7 @@ footer {
   animation: rotate 4s linear infinite; /* Ajuste a duração e o timing conforme necessário */
 }
 
-/* Defina a animação de rotação do disco*/
+/* Defina a animação de rotação */
 @keyframes rotate {
   from {
     transform: rotate(4deg);
@@ -568,121 +497,4 @@ footer {
   to {
     transform: rotate(360deg);
   }
-}
-
-/*dice animation */
-.startPlay {
-  color: rgb(220, 240, 71);
-  z-index: 1; 
-}
-
-
-
-.dice{
-  width: 50%;
-  height: 100%;
-  top: 0;
-  padding-top: 8%;
-  padding-right: 35%;
-  position: absolute;
-  right: 0;
-  overflow: hidden;
-  color: rgb(246, 248, 249);
-}
-.dice-action div {
-        position: absolute;
-        width: 160px;
-        height: 160px;
-        border: 1px solid #f07808;
-        background: transparent;
-        text-align: center;
-        font-size: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 0 20px 0px rgb(229, 230, 173);
-        top: 75px;
-}
-
-.dice-action{
-    animation-name: diceaction;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 12s;
-    transform-style: preserve-3d;
-    transform-origin: 75px 75px 0;
-    margin-left: calc(50% - 50px);
-}
-
-.face-1 {
-  transform: translateZ(80px);
-  
-}
-.face-2 {
-  transform: rotateY(90deg) translateZ(80px);
- 
-}
-.face-3 {
-  transform: rotateY(90deg) rotateX(90deg) translateZ(80px);
-  
-}
-.face-4 {
-  transform: rotateY(180deg) rotateZ(90deg) translateZ(80px);
-  
-}
-.face-5 {
-  transform: rotateY(-90deg) rotateZ(90deg) translateZ(80px);
- 
-}
-.face-6 {
-  transform: rotateX(-90deg) translateZ(80px);
-}
-
-@keyframes diceaction {
-  from,
-to {
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-}
-16% {
-  transform: rotateY(-90deg) rotateZ(90deg);
-}
-33% {
-  transform: rotateY(-90deg) rotateX(90deg);
-}
-50% {
-  transform: rotateY(-180deg) rotateZ(90deg);
-}
-66% {
-  transform: rotateY(-270deg) rotateX(90deg);
-}
-83% {
-  transform: rotateX(90deg);
-}
-}
-
-
-.falling-animation {
-  animation-name: fall;
-  animation-duration: 2s; /* Duração da animação em segundos */
-  animation-timing-function: ease-in-out; /* Tipo de animação (pode ajustar isso) */
-  animation-fill-mode: forwards; /* Mantém a posição final da animação */
-}
-
-@keyframes fall {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 70%; 
-  }
-}
-
-/*--------------------------- IN CONSTRUCTION -------------------*/
-
-.inConstruction {
-  height: auto;
-  width: 100vw;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
 }
