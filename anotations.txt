@@ -1,0 +1,17 @@
+              // Criamos uma nova instância do Howler com a música selecionada
+              audio.sound = new Howl({
+                src: [],
+              });
+              audio.sound.play();
+              audio.sound.volume(0.8);
+            } else {
+              console.error("Nenhuma música encontrada.");
+            }
+          } catch (error) {
+            console.error("Erro ao reproduzir música: ", error);
+          }
+        },
+        pause: () => {
+          if (audio.sound) {
+            audio.sound.pause();
+          }

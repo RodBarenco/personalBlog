@@ -3,8 +3,10 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db, storage } from '../firebase-config';
 import {ref as storageRef,getDownloadURL, listAll} from 'firebase/storage';
 import 'font-awesome/css/font-awesome.min.css';
-import { Howl, Howler } from 'howler';
 import { useNavigate } from "react-router-dom";
+import parse from 'html-react-parser';
+import DOMPurify from 'dompurify';
+import { wait } from "@testing-library/user-event/dist/utils";
 
 export function Home() {
     let navigate = useNavigate(); 
@@ -20,71 +22,58 @@ export function Home() {
       setGrayness((prevGrayness) => prevGrayness + 20);
       setIsClicked((prevState) => !prevState);
       console.log(grayness);
-      audio.play();
+      music !== null ? setMusic(null) : loadingMusicURL();
 
-    
-      setIsRotating(true);
+      setIsRotating((prevState) => !prevState);
     };
 
       const handleMouseEnter = () => {
-          setBlurness(0); // Define o desfoque como 0 quando o mouse entra, mas apenas se não estiver clicado
+          setBlurness(0);
+          if (music !== null) {setIsRotating(true)};
       };
     
       const handleMouseLeave = () => {
           setBlurness(10); // Define o desfoque como 10 quando o mouse sai, mas apenas se não estiver clicado
-          audio.pause();
+          setIsRotating(false)
       };
 
       //----MUSIC------ ainda não está funcionando, precisará de mudanças!-------------------------- erro de cross origin//
-      const audio = {
-        sound: null,
-        play: async () => {
-          try {
-            const musicRef = storageRef(storage, 'music'); // Substitua 'music' com o caminho correto para as músicas no seu Firebase Storage
-            const musicList = await listAll(musicRef);
-            const musicArray = [];
-    
-          
-            for (const itemRef of musicList.items) {
-              const musicUrl = await getDownloadURL(itemRef);
-              musicArray.push(musicUrl);
-            }
-    
-            if (musicArray.length > 0) {
-      
-              const randomIndex = Math.floor(Math.random() * musicArray.length);
-              const musicUrl = musicArray[randomIndex];
-              console.log(musicUrl)
-              // Criamos uma nova instância do Howler com a música selecionada
-              audio.sound = new Howl({
-                src: [],
-              });
-              audio.sound.play();
-              audio.sound.volume(0.8);
-            } else {
-              console.error("Nenhuma música encontrada.");
-            }
-          } catch (error) {
-            console.error("Erro ao reproduzir música: ", error);
-          }
-        },
-        pause: () => {
-          if (audio.sound) {
-            audio.sound.pause();
-          }
-    
-          // Parar a animação de rotação quando a música para
-          setIsRotating(false);
-        },
-      };
+      const [music, setMusic] = useState(null);
 
+
+      const loadingMusicURL = async () => {
+        try {
+          const musicRef = storageRef(storage, 'music'); // Substitua 'music' com o caminho correto para as músicas no seu Firebase Storage
+          const musicList = await listAll(musicRef);
+          const musicArray = [];
+    
+          for (const itemRef of musicList.items) {
+            const musicUrl = await getDownloadURL(itemRef);
+            musicArray.push(musicUrl);
+          }
+    
+          if (musicArray.length > 0) {
+            const randomIndex = Math.floor(Math.random() * musicArray.length);
+            const randomMusicUrl = musicArray[randomIndex];
+            setMusic(randomMusicUrl);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
+    
+      useEffect(() => {
+        if (music !== null) {
+          // A música está pronta, você pode renderizar o elemento <video> aqui
+        }
+      }, [music]);
 
       // -------------- THE DICE -----------------------------//
       
       const diceElement = document.querySelector(".dice-action");
       const [diceTopPosition, setDiceTopPosition] = useState(12);
       const [isAnimating, setIsAnimating] = useState(false);
-      const intervalIdRef = useRef(null); 
+      const intervalIdRef = useRef(null);
     
       const playDice = () => {
         console.log("start animation");
@@ -193,6 +182,21 @@ export function Home() {
                <img src="/logo-512.svg" alt="Logo"/>
             </div>
             
+            {music !== null && (
+            
+            <div className="musicLoader">
+             <video 
+               controls
+               autoPlay
+               name="media"
+               src={music}
+               type="audio/mpeg"
+             />
+             </div>
+
+            )}
+
+            
             <div className="startPlay">
               <h3>CLIQUE AQUI!</h3>
               <button className="fa fa-solid fa-play fa-2x" onClick={playDice}></button>
@@ -285,7 +289,7 @@ export function Home() {
                 <h1>Contato</h1>
                 <h4>Caso tenha alguma dúvida ou queira fazer contato profissional, <br/>utilize uma das seguintes opções:</h4>
                 <div className="buttonHomeContainer">
-                <button className="yellowbutton" > CONTATO </button>
+                <button className="yellowbutton" onClick={() => navigate("/contact")}> CONTATO </button>
                 <a href="https://www.linkedin.com/in/rodrigobarenco/" target="_blank">
                 <i className="fa fa-linkedin fa-2x"></i>
                 </a>
@@ -324,14 +328,17 @@ export function Home() {
                        {""}
                        <div className="postHeader">
                          {""}
-                         <div className="title">
-                         {""}
-                         <h2>{post.title}</h2>
-                         </div>
+                         {parse(DOMPurify.sanitize(post.title, { USE_PROFILES: { html: true } }))} 
+                         <span
+                            className="expand-text"
+                            onClick={() => navigate(`/article/${post.id}`)}
+                            style={{ marginLeft: '8px', cursor: 'pointer' }}
+                          >  
+                           <p>Expandir <i  className="fa fa-search"/></p>                        
+                        </span>
 
                          <div className="content">
-                         {""}
-                         <h4>{post.content}</h4>
+                         {parse(DOMPurify.sanitize(post.content, { USE_PROFILES: { html: true } }))} 
                       </div>
                     </div>
                   </div>
