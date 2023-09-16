@@ -1,0 +1,192 @@
+/* CREATE POST ------------------------------------------------------------------------------------------------------------- */
+
+.createPostPage {
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: grid;
+    place-items: center;
+    color: white;
+  }
+  
+  .cpContainer {
+    width: 90%;
+    height: auto;
+    min-height: auto;
+    padding: 20px;
+    background-color: rgba(23, 21, 21, 0.758);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    border-top: 1px;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: rgba(249, 248, 248, 0.353);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 768px) {
+    .cpContainer {
+      width: 97%; 
+      height: 80%;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .cpContainer {
+      height: 88%;
+      padding: 0px;
+      align-self: self-start;
+      margin-top: 15px;    
+    }
+  
+    .cpContainer label {
+      font-size: 20px;
+      align-self: flex-start;
+      margin-left: 10%;
+      margin-top: 35px;
+    }
+  }
+  
+  .cpContainer h1 {
+    margin: 5px;
+    text-align: center;
+    font-size: 25px;
+  }
+  
+  .cpContainer label {
+    font-size: 25px;
+    align-self: flex-start;
+    margin-left: 10%;
+    padding-bottom: 20px;
+  }
+  .cpContainer .inputGp {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputGp input,
+  .inputGp textarea {
+    font-size: 15px;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    width: 70rem;
+  }
+  
+  #bposter {
+    margin-top: 35px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 77%;
+  }
+  
+  .imageColorContainer {
+    display: block;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .postImage {
+    height: 25px;
+    margin-right: 15px;
+  }
+  .postColor {
+    height: 25px;
+  }
+  
+  /* QUILL BAR FROM CREAT POST */
+  
+  .quill-title {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .quill-content {
+    width: 95%;
+    height: 18rem;
+    margin: 10px;
+  }
+  
+  .ql-toolbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start; 
+    align-items: center; 
+    height: 2rem;
+  }
+  
+  @media screen and (max-width: 912px) {
+    .quill-title {
+      width: 90%;
+      margin: 10px;
+      height: 2.2rem;
+      margin: 35px;
+    }
+    .quill-content {
+      width: 90%;
+      height: 18rem;
+      margin: 2px;
+    }
+  
+    .ql-toolbar {
+      width: 100%;
+      display: block;
+      flex-direction: row; 
+      justify-content: flex-start; 
+      align-items: center; 
+      height: 2rem;
+    }
+  
+    .yellowbutton {
+      background-color: yellow;
+      color: black;
+      border: none;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: background-color 0.5s, border-color 0.3s, color 0.3s;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .quill-title {
+      width: 24rem;
+      margin: 10px;
+      height: 2.2rem;
+      margin: 5px;
+    }
+    .quill-content {
+      width: 24rem;
+      height: 18rem;
+      margin: 2px;
+    }
+  
+    .ql-toolbar {
+      width: 100%;
+      display: block;
+      flex-direction: row; 
+      justify-content: flex-start; 
+      align-items: center; 
+      height: 2rem;
+    }
+  
+    .yellowbutton {
+      background-color: yellow;
+      color: black;
+      border: none;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: background-color 0.5s, border-color 0.3s, color 0.3s;
+    }
+  }

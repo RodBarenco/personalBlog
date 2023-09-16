@@ -5,6 +5,8 @@ import { db} from '../firebase-config';
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
+import '../styles/Article.css';
+
 const Article = () => {
   const { id } = useParams();
   console.log(id)

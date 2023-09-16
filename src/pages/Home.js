@@ -6,7 +6,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import { useNavigate } from "react-router-dom";
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
-import { wait } from "@testing-library/user-event/dist/utils";
+
+import '../styles/Home.css';
 
 export function Home() {
     let navigate = useNavigate(); 
@@ -79,7 +80,7 @@ export function Home() {
         console.log("start animation");
         setIsAnimating(true);
       
-        const targetPositions = [1362, 1920, 2568, 3216];
+        const targetPositions = [1362, 1974, 2604, 3216];
         let currentPosition = 0;
         let isPaused = false;
       

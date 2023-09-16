@@ -4,6 +4,8 @@ import {auth, provider} from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
+import '../styles/Login.css';
+
 function Login({setIsAuth, mainUser}) {
     let navigate = useNavigate();
     console.log(mainUser)

@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
 
+import '../styles/AddPost.css';
+
 
 function AddPost() {
   const [title, setTitle] = useState('');

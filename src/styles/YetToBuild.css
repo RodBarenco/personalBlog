@@ -1,0 +1,23 @@
+/*--------------------------- IN CONSTRUCTION -------------------*/
+
+.inConstruction {
+    height: auto;
+    width: 100vw;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  .musicLoader {
+    position: absolute;
+    height: 60px;
+    width: 180px;
+    background-color: transparent;
+    margin-top: 14%;
+    margin-left: 25px;
+  }
+  
+  .musicLoader video {
+    height: 60px;
+    width: 180px;
+  }

@@ -55,9 +55,9 @@ function App() {
         
       </div>
       <footer>
-        <Link to="/">Página Inicial</Link>
-        <Link to="/about">Sobre mim</Link>
-        <Link to="/contact">Contato</Link>
+        <div className="footerText">
+          &copy; Rodrigo Barenco 2003 - <span id="react-info">Built with React.js</span>
+        </div>
      </footer>
     </Router>
   );
