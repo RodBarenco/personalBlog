@@ -213,22 +213,22 @@ export function Home() {
 
              <div className="dice-action">
               <div className="face-1">
-                <h1>1</h1>
+                <h1></h1>
               </div>
               <div className="face-2">
-                <h1>2</h1>
+                <h1></h1>
               </div>
               <div className="face-3">
-                <h1>3</h1>
+                <h1></h1>
               </div>
               <div className="face-4">
-                <h1>4</h1>
+                <h1></h1>
               </div>
               <div className="face-5">
-                <h1>5</h1>
+                <h1></h1>
               </div>
               <div className="face-6">
-                <h1>6</h1>
+                <h1></h1>
              </div>
             </div>    
             </div>

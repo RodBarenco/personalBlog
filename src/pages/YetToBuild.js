@@ -5,7 +5,7 @@ import '../styles/YetToBuild.css';
 function InConstruction() {
     return (
         <div className="inConstruction">
-            <img src="/inconstruction.svg" alt="503"/>
+            <img className="inConstPic" src="/inconstruction.svg" alt="503"/>
         </div>
     )
 }

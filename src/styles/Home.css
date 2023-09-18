@@ -202,6 +202,13 @@
 
   /* Estilos para Extra Pequeno (XS) --------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 576px) {
+ 
+
+       .mainHome .hometext{
+         width: 100%;
+         margin-top: 488px;
+         margin-left: -45%;
+       }
 
         .homeSliceOne{
         height: 95vh;
@@ -209,12 +216,6 @@
         background-color: rgb(220, 240, 71);
         margin: 0;
         color:black;
-      }
-
-      .mainHome .hometext{
-        width: 100%;
-        margin-top: 500px;
-        margin-left: -45%;
       }
 
       .homeSliceOne .hometext {

@@ -70,7 +70,7 @@ nav {
   align-items: center;
   color: white;
   text-decoration: none;
-  z-index: 2;
+  z-index: 5;
 }
 @media screen and (max-width: 576px) {
   nav {
@@ -155,9 +155,10 @@ footer {
 
 .dice{
   width: 50%;
-  height: 100%;
+  height: 70%;
   top: 0;
-  padding-top: 8%;
+  margin-top: 25px;
+  padding-top: 12%;
   padding-right: 35%;
   position: absolute;
   right: 0;
@@ -167,9 +168,12 @@ footer {
 
 @media screen and (max-width: 576px) {
   .dice{
-    padding-top: 75%;
+    margin-top: 40px;;
+    padding-top: 72%;
     padding-right: 25%;
     padding-right: 25%;
+    height: 50%;
+    width: 80%;
     }
 
 }
@@ -290,9 +294,9 @@ to {
 
 .falling-animation {
   animation-name: fall;
-  animation-duration: 2s; /* Duração da animação em segundos */
-  animation-timing-function: ease-in-out; /* Tipo de animação (pode ajustar isso) */
-  animation-fill-mode: forwards; /* Mantém a posição final da animação */
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out; 
+  animation-fill-mode: forwards; 
 }
 
 @keyframes fall {
@@ -301,5 +305,170 @@ to {
   }
   100% {
     top: 70%; 
+  }
+}
+
+
+/*---------------------------------------------*/
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate3d(0, 0, 0, 360deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+.circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid #d9f0085a;
+}
+.clip-circle {
+  position: absolute;
+  padding: 0;
+  top: -16px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  clip-path: circle(99px at center);
+}
+.lighting:after {
+    content: '';
+    position: absolute;
+    top: 43px;
+    left: 61px;
+}
+.reflection:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 200px;
+    width: 200px;
+    background-image:url("../public/juno.svg");
+    background-size: 200px 200px;
+}
+
+
+.metal {
+  position: absolute;
+  padding: 20px;
+  opacity: 0.8;
+  width: 200px;
+  height: 200px;
+  animation-name: zigzag;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.metal .lighting {
+  box-shadow: -20px -30px 100px 0 rgba(46, 22, 6, 0.9) inset, -75px -100px 107px 0 rgba(0, 0, 0, 0.3) inset, 75px 100px 127px 0 rgba(255, 255, 255, 0.23) inset;
+}
+.metal .lighting:after {
+    box-shadow: 0 0 42px 20px rgba(188, 175, 175, 0.747), 0 0 7px 6px rgba(255, 255, 255, 0.9);
+  }
+.metal .reflection:before {
+    opacity: 0.0;
+}
+
+/* Classe para animação de vibração */
+.vibrate {
+  animation-name: vibrate;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: infinite;
+}
+
+/* Classe para movimento suave */
+.smooth-move {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Adicione esta classe no seu arquivo CSS */
+.custom-rubber-band {
+  animation-name: customRubberBand;
+  animation-duration: 1.4s; /* Ajuste a duração conforme necessário */
+}
+
+@keyframes customRubberBand {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  30% {
+    transform: scale(1.25, 0.75)translateY(108);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85) translateY(-350px);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  87% {
+    transform: scale(0.8, 1.1) translateY(38);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+@keyframes zigzag {
+  0%, 100% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  12% {
+    top: 90%;
+    left: 20%;
+    transform: translate(-20%, -20%);
+  }
+  25% {
+    top: 5%;
+    left: 5%;
+    transform: translate(-20%, -20%);
+  }
+  35% {
+    top: 90%;
+    left: 12%;
+    transform: translate(-20%, -20%);
+  }
+  50% {
+    top: 95%;
+    left: 95%;
+    transform: translate(-80%, -80%);
+  }
+  75% {
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+  }
+  85% {
+    top: 10%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+  }
+  95% {
+    top: 19%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }
+  95% {
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

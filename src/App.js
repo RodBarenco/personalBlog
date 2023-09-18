@@ -47,7 +47,7 @@ function App() {
         <Route path="/login" element={<Login setIsAuth={setIsAuth} mainUser={mainUser}/>} />
         <Route path="/about" element={<InConstruction />} />
         <Route path="/contact" element={<InConstruction />}/>
-        <Route path="/projects" element={<InConstruction />} />
+        <Route path="/projects" element={<Projects />} />
         {!isAuth ? <Route path="/addpost" element={<Home />}/> : <Route path="/AddPost" element={<AddPost />} />}
         <Route path="/article/:id" element={<Article/>} />
       </Routes>
@@ -56,7 +56,7 @@ function App() {
       </div>
       <footer>
         <div className="footerText">
-          &copy; Rodrigo Barenco 2003 - <span id="react-info">Built with React.js</span>
+          &copy; Rodrigo Barenco 2023 - <span id="react-info">Built with React.js</span>
         </div>
      </footer>
     </Router>
