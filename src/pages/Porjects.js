@@ -128,8 +128,8 @@ function Projects() {
       title: "Validador de Cartão em JavaScript",
       description:
         "São validações simples usando regex para verificação da bandeira do cartão.",
-      link: "https://vercel.com/rodbarenco/cardvalidationrocketseatlesson",
       repoLink: "https://github.com/RodBarenco/cardvalidation_rocketseat_lesson",
+      liveLink: "https://cardvalidationrocketseatlesson.vercel.app",
       media: (
         <img
           src="https://media.licdn.com/dms/image/C4D22AQHl_ecOsUgfcw/feedshare-shrink_1280/0/1666668970470?e=1697673600&v=beta&t=cojQXML2xk5zVsmZLWA4PyOq5Isu7ihTcCajaavdNeI"

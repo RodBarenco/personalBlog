@@ -16,7 +16,10 @@ import { auth } from './firebase-config';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
-  const mainUser = process.env.REACT_APP_MAIN_USER
+  const mainUser = process.env.REACT_APP_MAIN_USER;
+  const e1 = process.env.REACT_APP_E1;
+  const e2 = process.env.REACT_APP_E2;
+  const e3 = process.env.REACT_APP_E3;
 
   const handleLogout = () => {
     signOut(auth).then(() => {
@@ -46,7 +49,7 @@ function App() {
         <Route path="/articles" element={<InConstruction/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} mainUser={mainUser}/>} />
         <Route path="/about" element={<InConstruction />} />
-        <Route path="/contact" element={<InConstruction />}/>
+        <Route path="/contact" element={<Contact e1={e1} e2={e2} e3={e3}/>}/>
         <Route path="/projects" element={<Projects />} />
         {!isAuth ? <Route path="/addpost" element={<Home />}/> : <Route path="/AddPost" element={<AddPost />} />}
         <Route path="/article/:id" element={<Article/>} />

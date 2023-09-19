@@ -38,13 +38,13 @@ export function Home() {
           setIsRotating(false)
       };
 
-      //----MUSIC------ ainda não está funcionando, precisará de mudanças!-------------------------- erro de cross origin//
+      //----MUSIC-------------------------------- //
       const [music, setMusic] = useState(null);
 
 
       const loadingMusicURL = async () => {
         try {
-          const musicRef = storageRef(storage, 'music'); // Substitua 'music' com o caminho correto para as músicas no seu Firebase Storage
+          const musicRef = storageRef(storage, 'music'); 
           const musicList = await listAll(musicRef);
           const musicArray = [];
     
@@ -65,7 +65,6 @@ export function Home() {
     
       useEffect(() => {
         if (music !== null) {
-          // A música está pronta, você pode renderizar o elemento <video> aqui
         }
       }, [music]);
 
@@ -170,32 +169,33 @@ export function Home() {
         // FRIST STEP 1 - logo, 2 DADO, 3 TEXT -----  Slices --------- Contact and articles
         <div className="homePage">
           <div className="mainHome">
-            <div
-              className={`homeLogo ${isRotating ? "rotate-animation" : ""}`} 
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onClick={handleClick}
-              style={{
-                filter: `blur(${blurness}px) grayscale(${grayness}%)`,
-                transition: "filter 1.8s ease-in-out",
-              }}
-            >
-               <img src="/logo-512.svg" alt="Logo"/>
-            </div>
             
-            {music !== null && (
-            
-            <div className="musicLoader">
-             <video 
-               controls
-               autoPlay
-               name="media"
-               src={music}
-               type="audio/mpeg"
-             />
-             </div>
+       <div className="homeLogoWrapper">
+        <div
+          className={`homeLogo ${isRotating ? "rotate-animation" : ""}`} 
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          style={{
+            filter: `blur(${blurness}px) grayscale(${grayness}%)`,
+            transition: "filter 1.8s ease-in-out",
+          }}
+        >
+          <img src="/logo-512.svg" alt="Logo"/>
+        </div>
+      </div>
 
-            )}
+      {music !== null && (
+        <div className="musicLoader" style={{ top: "15px", zIndex: 1 }}>
+          <video 
+            controls
+            autoPlay
+            name="media"
+            src={music}
+            type="audio/mpeg"
+          />
+        </div>
+      )}
 
             
             <div className="startPlay">

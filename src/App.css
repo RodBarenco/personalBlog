@@ -311,17 +311,6 @@ to {
 
 /*---------------------------------------------*/
 
-
-
-@keyframes rotate {
-  0% {
-    transform: rotate3d(0, 0, 0, 360deg);
-  }
-  100% {
-    transform: rotate3d(0, 1, 0, 360deg);
-  }
-}
-
 .circle {
   position: absolute;
   width: 200px;
@@ -344,22 +333,11 @@ to {
     top: 43px;
     left: 61px;
 }
-.reflection:before {
-    content: '';
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 200px;
-    width: 200px;
-    background-image:url("../public/juno.svg");
-    background-size: 200px 200px;
-}
-
 
 .metal {
   position: absolute;
   padding: 20px;
-  opacity: 0.8;
+  opacity: 1;
   width: 200px;
   height: 200px;
   animation-name: zigzag;
@@ -378,6 +356,8 @@ to {
     opacity: 0.0;
 }
 
+/*-----------------------------------------------------------------------------------*/
+
 /* Classe para animação de vibração */
 .vibrate {
   animation-name: vibrate;
@@ -391,10 +371,10 @@ to {
   transition: transform 0.5s ease-in-out;
 }
 
-/* Adicione esta classe no seu arquivo CSS */
+/*---------------------------------------------------------------------------------------*/
 .custom-rubber-band {
   animation-name: customRubberBand;
-  animation-duration: 1.4s; /* Ajuste a duração conforme necessário */
+  animation-duration: 1.4s; 
 }
 
 @keyframes customRubberBand {
