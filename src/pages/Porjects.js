@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "animate.css";
 import "../styles/Projects.css";
 
 function Projects() {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [activeDivIndex, setActiveDivIndex] = useState(0);
+  
 
   const projects = [
     {
@@ -18,8 +19,8 @@ function Projects() {
         <img
           src={"/project-pics/colab.png"}
           alt="Imagem do projeto"
-          width={570} 
-          height={420}
+          width={'87%'} 
+          height={'70%'}
           style={{
             boxShadow: '1px 0px 8px black' 
           }}
@@ -35,8 +36,7 @@ function Projects() {
         <img
           src={"https://media.licdn.com/dms/image/C4D22AQFVFWww8hE6JQ/feedshare-shrink_2048_1536/0/1671560851131?e=1697673600&v=beta&t=G2Ix97TUbmDc8H0ymKOHeaVVbC9kGlfQqeQtq50-vlw"}
           alt="Imagem do projeto"
-          width={570} 
-          height={420}
+          width={'98%'}      
           style={{
             boxShadow: '1px 0px 8px black' 
           }}
@@ -52,8 +52,8 @@ function Projects() {
         <img
           src={"https://media.licdn.com/dms/image/D4D22AQEioH3uNiOdhw/feedshare-shrink_2048_1536/0/1683988694422?e=1697673600&v=beta&t=9NrE7OvqhUGuW5Th1wLyw_i3nggdlBrUJVvqP5O-HkM"}
           alt="Imagem do projeto"
-          width={290} 
-          height={420}
+          height={'32%'}
+          width={'85%'}
           style={{
             boxShadow: '1px 0px 8px black' 
           }}
@@ -68,8 +68,8 @@ function Projects() {
         <img
           src={"/project-pics/nestapi.png"}
           alt="Imagem do projeto"
-          width={460} 
-          height={340}
+          width={'92%'} 
+          height={'89%'}
           style={{
             boxShadow: '1px 0px 8px black'  
           }}
@@ -84,8 +84,8 @@ function Projects() {
         <img
           src={"/project-pics/scraping.png"}
           alt="Imagem do projeto"
-          width={570} 
-          height={420}
+          width={'85%'} 
+          height={'75%'}
           style={{
             boxShadow: '1px 0px 8px black'  
           }}
@@ -100,8 +100,8 @@ function Projects() {
         <img
           src="https://media.licdn.com/dms/image/D4D22AQHCzsVvaZaFUQ/feedshare-shrink_2048_1536/0/1681089358395?e=1697673600&v=beta&t=D5MNcdHtqF7rWX7lpDW_DsPGVYh0OOBIi-CfznqtVFE"
           alt="Imagem do projeto"
-          width={570} 
-          height={420}
+          width={'92%'} 
+          height={'79%'}
           style={{
             boxShadow: '1px 0px 8px black' 
           }}
@@ -117,8 +117,8 @@ function Projects() {
         <img
           src="https://media.licdn.com/dms/image/C4D22AQEiWlqAaVP2Dg/feedshare-shrink_1280/0/1673878260889?e=1697673600&v=beta&t=LilBjJaA-RUMgus5ZsjcTsn0kGaAfumB6VYXJjqvoBc"
           alt="Imagem do projeto"
-          width={570} 
-          height={380}
+          width={'92%'} 
+          height={'79%'}
           style={{
             boxShadow: '1px 0px 8px black' 
           }}
@@ -134,14 +134,39 @@ function Projects() {
         <img
           src="https://media.licdn.com/dms/image/C4D22AQHl_ecOsUgfcw/feedshare-shrink_1280/0/1666668970470?e=1697673600&v=beta&t=cojQXML2xk5zVsmZLWA4PyOq5Isu7ihTcCajaavdNeI"
           alt="Imagem do projeto"
-          width={570} 
-          height={380}
+          width={'92%'} 
+          height={'79%'}
           style={{
             boxShadow: '1px 0px 8px black' 
           }}
         />)
     },
   ];
+
+  async function preloadImages(projects) {
+    const imagePromises = projects.map(async (project) => {
+      if (project.media && typeof project.media === 'object' && project.media.props.src) {
+        return new Promise((resolve) => {
+          const image = new Image();
+          image.src = project.media.props.src;
+          image.onload = resolve;
+        });
+      }
+      return null;
+    });
+  
+    await Promise.all(imagePromises);
+  }
+
+  useEffect(() => {
+    async function preload() {
+      await preloadImages(projects);
+    }
+
+    preload();
+  }, []); 
+
+  //----------------------------------------------------------------------------------
 
   const handleMouseEnter = () => {
     setIsMouseOver(true);
