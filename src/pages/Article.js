@@ -1,46 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom'; 
-import { doc, getDoc} from 'firebase/firestore'; 
-import { db} from '../firebase-config';
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
 import '../styles/Article.css';
 
-const Article = () => {
-  const { id } = useParams();
-  console.log(id)
-  const [article, setArticle] = useState({}); 
-  
-  const fetchArticle = async () => {
-    try {
-      const articleRef = doc(db, 'posts', id);
-      const articleDoc = await getDoc(articleRef);
-      if (articleDoc.exists()) {
-        const articleData = articleDoc.data();
-        if (articleData) {
-          const { title, content} = articleData;
-          setArticle({
-            title,
-            content,
-          });
-          console.log(title)
-        } else {
-          console.log('Dados do artigo em formato incorreto');
-        }
-      } else {
-        console.log('Artigo não encontrado');
-      }
-    } catch (error) {
-      console.error('Erro ao buscar o artigo:', error);
-    }
-  };
+const Article = ({getArticleById}) => {
 
- 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    fetchArticle();
-  }, [id]);
+  const { id } = useParams();
+  const article = getArticleById(id);
+  console.log(article);
+ if (!article) {
+    return <div>Carregando...</div>;
+ }
+
+ window.scrollTo(0, 0);
 
   return (
     <div className='ExpandedArticleContainer'>

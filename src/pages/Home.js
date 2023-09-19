@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { collection, getDocs } from 'firebase/firestore';
 import { db, storage } from '../firebase-config';
 import {ref as storageRef,getDownloadURL, listAll} from 'firebase/storage';
 import 'font-awesome/css/font-awesome.min.css';
@@ -9,7 +8,7 @@ import DOMPurify from 'dompurify';
 
 import '../styles/Home.css';
 
-export function Home() {
+export function Home({postList}) {
     let navigate = useNavigate(); 
 
     const [isClicked, setIsClicked] = useState(false);
@@ -148,22 +147,6 @@ export function Home() {
       useEffect(() => {
       
       }, [diceTopPosition]);
-
-      //----------------------- GET POSTS -----------------------------------------------------//
-
-      
-   const [postList, setPostList] = useState([]);
-   const postCollectionRef = collection(db, "posts");
-
-    useEffect(() => {
-       const getPosts = async () => {
-           const data = await getDocs(postCollectionRef);
-            setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        };
-        getPosts();
-    },[]);
-
-    //--------------------------------------------------------------------------------------------//
 
     return (
         // FRIST STEP 1 - logo, 2 DADO, 3 TEXT -----  Slices --------- Contact and articles
@@ -307,8 +290,11 @@ export function Home() {
 
                  function styleHandlerIn() {
                    setHoveredPostId(post.id)
-                  console.log(post.color)
                  }
+
+                 if (!post) {
+                  return <div key={post.id}>Carregando...</div>;
+                }
 
                  function styleHandlerOut() {
                    setHoveredPostId(null)

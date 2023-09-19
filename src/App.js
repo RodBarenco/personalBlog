@@ -1,5 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './firebase-config';
 import Home from "./pages/Home";
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -9,7 +11,7 @@ import Login from './pages/Login';
 import Articles from './pages/Articles';
 import Article  from './pages/Article';
 import InConstruction from './pages/YetToBuild'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase-config';
 
@@ -28,6 +30,23 @@ function App() {
       window.location.pathname="/"
     })
   }
+
+  const [postList, setPostList] = useState([]);
+  const postCollectionRef = collection(db, "posts");
+
+   useEffect(() => {
+      const getPosts = async () => {
+          const data = await getDocs(postCollectionRef);
+           setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+       };
+       getPosts();
+   },[]);
+
+
+  const getArticleById = (articleId) => {
+    return postList.find((post) => post.id === articleId);
+  };
+  
    
   return (
     <Router>
@@ -45,14 +64,14 @@ function App() {
         )}
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home postList={postList}/>} />
         <Route path="/articles" element={<InConstruction/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} mainUser={mainUser}/>} />
         <Route path="/about" element={<InConstruction />} />
         <Route path="/contact" element={<Contact e1={e1} e2={e2} e3={e3}/>}/>
         <Route path="/projects" element={<Projects />} />
         {!isAuth ? <Route path="/addpost" element={<Home />}/> : <Route path="/AddPost" element={<AddPost />} />}
-        <Route path="/article/:id" element={<Article/>} />
+        <Route path="/article/:id" element={<Article getArticleById={getArticleById}/>} />
       </Routes>
       <div className='whiteBox'>
         
