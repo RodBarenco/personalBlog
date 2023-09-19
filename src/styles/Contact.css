@@ -102,7 +102,7 @@ textarea{
     text-align: center;
     margin-right: 10px;
     border-radius: 4px;
-
+    z-index: 1;
     &:hover {
       background-color:transparent;
       color: yellow;
@@ -178,6 +178,7 @@ textarea{
 
     .text-zone{
       width: 95%;
+      z-index: 1;
     }
 
     .leaflet-container {
@@ -193,7 +194,7 @@ textarea{
     .map-wrap {
       float: none;
       width: 92%;
-      height: 335px;
+      height: 300px;
       margin-left: 3%;
       position: absolute;
       bottom: 0;
