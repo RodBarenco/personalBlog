@@ -14,6 +14,7 @@ import InConstruction from './pages/YetToBuild'
 import { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase-config';
+import Parallax from './Parallax';
 
 
 function App() {
@@ -46,8 +47,9 @@ function App() {
   const getArticleById = (articleId) => {
     return postList.find((post) => post.id === articleId);
   };
-  
-   
+
+//-----------------------------------------------------------------------------------------
+    
   return (
     <Router>
       <nav>
@@ -73,9 +75,13 @@ function App() {
         {!isAuth ? <Route path="/addpost" element={<Home />}/> : <Route path="/AddPost" element={<AddPost />} />}
         <Route path="/article/:id" element={<Article getArticleById={getArticleById}/>} />
       </Routes>
-      <div className='whiteBox'>
+    
+      <div>
+       {/* Outro conteúdo */}
+        <Parallax />
+       {/* Mais conteúdo */}
+    </div>
         
-      </div>
       <footer>
         <div className="footerText">
           &copy; Rodrigo Barenco 2023 - <span id="react-info">Built with React.js</span>
@@ -86,3 +92,4 @@ function App() {
 }
 
 export default App;
+

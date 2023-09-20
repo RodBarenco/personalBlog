@@ -10,7 +10,7 @@
 
 .active-div {
     background-color: rgba(20, 19, 19, 0.9);
-    height: 550px;
+    height: 558px;
     width: 60%;
     z-index: 5;
     border: solid 1px purple;
@@ -26,6 +26,14 @@
     border-radius: 2px;
 }
 
+@media screen and (min-width: 769px) and (max-width: 578px){
+    .active-div {
+        background-color: rgba(20, 19, 19, 0.9);
+        height: 398px;
+        width: 65%;
+    }
+}
+
 .animate__fadeIn {
-    animation-duration: 1s; 
+    animation-duration: 3s; 
   }

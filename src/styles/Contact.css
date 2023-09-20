@@ -172,7 +172,7 @@ textarea{
     .contact-wrapper{
        flex-direction: column;
        overflow-x: hidden;
-       height: 125vh;
+       height: 128vh;
        padding: 5px;
     }
 
@@ -194,10 +194,10 @@ textarea{
     .map-wrap {
       float: none;
       width: 92%;
-      height: 270px;
+      height: 250px;
       margin-left: 3%;
       position: absolute;
-      bottom: 0;
+      bottom: -20px;
     }
     
     

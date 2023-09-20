@@ -3,9 +3,6 @@ import "animate.css";
 import "../styles/Projects.css";
 
 function Projects() {
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  const [activeDivIndex, setActiveDivIndex] = useState(0);
-  
 
   const projects = [
     {
@@ -19,10 +16,11 @@ function Projects() {
         <img
           src={"/project-pics/colab.png"}
           alt="Imagem do projeto"
-          width={'87%'} 
-          height={'70%'}
+          width={'86%'} 
+          height={'65%'}
           style={{
-            boxShadow: '1px 0px 8px black' 
+            boxShadow: '1px 0px 8px black',
+            marginTop: '14px',
           }}
           />)
     },
@@ -36,9 +34,10 @@ function Projects() {
         <img
           src={"https://media.licdn.com/dms/image/C4D22AQFVFWww8hE6JQ/feedshare-shrink_2048_1536/0/1671560851131?e=1697673600&v=beta&t=G2Ix97TUbmDc8H0ymKOHeaVVbC9kGlfQqeQtq50-vlw"}
           alt="Imagem do projeto"
-          width={'98%'}      
+          width={'85%'}      
           style={{
-            boxShadow: '1px 0px 8px black' 
+            boxShadow: '1px 0px 8px black',
+            marginLeft: '7%',
           }}
         />)
     },
@@ -52,10 +51,11 @@ function Projects() {
         <img
           src={"https://media.licdn.com/dms/image/D4D22AQEioH3uNiOdhw/feedshare-shrink_2048_1536/0/1683988694422?e=1697673600&v=beta&t=9NrE7OvqhUGuW5Th1wLyw_i3nggdlBrUJVvqP5O-HkM"}
           alt="Imagem do projeto"
-          height={'32%'}
+          height={'27%'}
           width={'85%'}
           style={{
-            boxShadow: '1px 0px 8px black' 
+            boxShadow: '1px 0px 8px black', 
+            marginTop: '28px'
           }}
         />)
     },
@@ -85,9 +85,10 @@ function Projects() {
           src={"/project-pics/scraping.png"}
           alt="Imagem do projeto"
           width={'85%'} 
-          height={'75%'}
+          height={'68%'}
           style={{
-            boxShadow: '1px 0px 8px black'  
+            boxShadow: '1px 0px 8px black',  
+            marginTop: '14px',
           }}
         />)
     },
@@ -103,7 +104,8 @@ function Projects() {
           width={'92%'} 
           height={'79%'}
           style={{
-            boxShadow: '1px 0px 8px black' 
+            boxShadow: '1px 0px 8px black',
+            marginTop: '14px',
           }}
         />)
     },
@@ -120,7 +122,8 @@ function Projects() {
           width={'92%'} 
           height={'79%'}
           style={{
-            boxShadow: '1px 0px 8px black' 
+            boxShadow: '1px 0px 8px black', 
+            marginTop: '10px',
           }}
         />)
     },
@@ -137,7 +140,8 @@ function Projects() {
           width={'92%'} 
           height={'79%'}
           style={{
-            boxShadow: '1px 0px 8px black' 
+            boxShadow: '1px 0px 8px black',
+            marginTop: '8px',
           }}
         />)
     },
@@ -167,10 +171,15 @@ function Projects() {
   }, []); 
 
   //----------------------------------------------------------------------------------
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const [activeDivIndex, setActiveDivIndex] = useState(0);
+
+  const handleShowProjects = () => {
+    setActiveDivIndex((prevIndex) => (prevIndex + 1) % 9);
+  }
 
   const handleMouseEnter = () => {
     setIsMouseOver(true);
-    setActiveDivIndex((prevIndex) => (prevIndex + 1) % 9);
   };
 
   const handleMouseLeave = () => {
@@ -178,6 +187,21 @@ function Projects() {
   };
 
   const circleClass = isMouseOver ? "circle reflection lighting custom-rubber-band" : "circle reflection lighting";
+//------------------------------------------------------------------------------------------------------------------
+  const [hovered, setHovered] = useState(false);
+
+  const handImgHoverIn = () => {
+    setHovered(true);
+  };
+
+  const handImgHoverOut = () => {
+    setHovered(false);
+  };
+
+  useEffect(() => {
+  }, [hovered]);
+
+//----------------------------------------------------------------------------------------------------------------
 
   return (
     <div className="projects">
@@ -191,6 +215,7 @@ function Projects() {
 
       <div
         className="metal"
+        onClick={handleShowProjects}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -208,11 +233,7 @@ function Projects() {
       {activeDivIndex !== 0 && (
         <div
           className={`active-div div${activeDivIndex} animate__animated animate__fadeIn`} 
-          style={{
-            transform: "translate(-50%, -50%)",
-            transition: "0.8s ease-in-out",
-        }}
->
+       >
           <h2>{projects[activeDivIndex - 1].title}</h2>
           <p>{projects[activeDivIndex - 1].description}</p>
          
@@ -232,9 +253,16 @@ function Projects() {
        </div>
           
           {projects[activeDivIndex - 1].media && (
-         <div>
+         <div
+          onMouseEnter={handImgHoverIn}
+          onMouseLeave={handImgHoverOut}
+          style={{
+            marginTop: '10px',
+            transform: hovered ? 'scale(1.08)' : 'scale(1)', 
+            transition: 'transform 1.8s ease', 
+          }}
+         >
           {typeof projects[activeDivIndex - 1].media === 'string' ? (
-      // Se a mídia for uma string, assume que é um link de imagem
             <img 
               src={projects[activeDivIndex - 1].media}
               alt="Imagem do projeto"
