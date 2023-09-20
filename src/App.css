@@ -110,6 +110,7 @@ a:hover {
   border: 1px solid #ddd;
 }
 
+
 /* Personalização da barra de rolagem */
 .whiteBox::-webkit-scrollbar {
   width: 1px; /* Largura da barra de rolagem */
@@ -142,6 +143,12 @@ a:hover {
 
 .tip h4 {
   margin-top: 20px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.tip p {
+  color: rgb(252, 242, 219);
+  font-weight:800;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 :root {

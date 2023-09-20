@@ -37,7 +37,12 @@ function Parallax() {
   
 
   return (
-    <div className='whiteBox'>
+    <
+      div className='whiteBox'
+      style={{
+        filter: `grayscale(0.78)`,
+      }}
+    >
       <div className={`parallax-container ${isMouseOver ? 'pause-animation' : ''}`}>
         {tipsData && tipsData.dicas_para_desenvolvedores.map((tip, index) => (
           <div
