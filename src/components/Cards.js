@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/Cards.css';
 
-function Parallax() {
+function Cards() {
   const [tipsData, setTipsData] = useState(null);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ function Parallax() {
 
   return (
     <
-      div className='whiteBox'
+      div className='preFooter'
       style={{
         filter: `grayscale(0.78)`,
       }}
@@ -60,4 +61,4 @@ function Parallax() {
   );
 }
 
-export default Parallax;
+export default Cards;

@@ -11,10 +11,10 @@ import Login from './pages/Login';
 import Articles from './pages/Articles';
 import Article  from './pages/Article';
 import InConstruction from './pages/YetToBuild'
+import Cards from './components/Cards'
 import { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase-config';
-import Parallax from './Parallax';
 
 
 function App() {
@@ -78,7 +78,7 @@ function App() {
     
       <div>
        {/* Outro conteúdo */}
-        <Parallax />
+        <Cards />
        {/* Mais conteúdo */}
     </div>
         

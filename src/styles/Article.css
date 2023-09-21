@@ -1,15 +1,17 @@
 /* ARTICLE EXPANDED*/
 .ExpandedArticleContainer{
-    width: 97.5vw;
+    width: 100%;
     height: auto;
     min-height: 100vh;
     background-color: transparent;
     display: flex;
+    flex-direction: column; 
     justify-content: center;
+    align-items: center;
     padding: 10px;
   }
   .ExpandedArticle {
-    width: 96%;
+    width: 92%;
     background-color: #000000;
     color: rgb(235, 235, 235);
     display: flex;
