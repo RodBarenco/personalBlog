@@ -1,6 +1,8 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 
+import '../styles/Share.css';
+
 const ShareButton = ({ type, url, text }) => {
   const handleClick = () => {
     switch (type) {
@@ -15,6 +17,14 @@ const ShareButton = ({ type, url, text }) => {
       case 'twitter':
         const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
         window.open(twitterUrl, '_blank');
+        break;
+      case 'linkedin':
+        const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+        window.open(linkedinUrl, '_blank');
+        break;
+      case 'reddit':
+        const redditUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`;
+        window.open(redditUrl, '_blank');
         break;
       case 'copy':
         const input = document.createElement('input');
@@ -38,6 +48,10 @@ const ShareButton = ({ type, url, text }) => {
         return 'whatsapp';
       case 'twitter':
         return 'twitter';
+      case 'linkedin':
+        return 'linkedin';
+      case 'reddit':
+        return 'reddit';
       case 'copy':
         return 'copy';
       default:
@@ -48,11 +62,15 @@ const ShareButton = ({ type, url, text }) => {
   const getButtonText = () => {
     switch (type) {
       case 'facebook':
-        return ' Facebook';
+        return 'Facebook';
       case 'whatsapp':
-        return ' WhatsApp';
+        return 'WhatsApp';
       case 'twitter':
         return ' Twitter';
+      case 'linkedin':
+        return 'Linkedin';
+      case 'reddit':
+        return 'Reddit';
       case 'copy':
         return 'Copiar Link';
       default:
@@ -61,16 +79,7 @@ const ShareButton = ({ type, url, text }) => {
   };
 
   return (
-    <
-        button onClick={handleClick} 
-        style={{
-            height: '49px',
-            backgroundColor: 'transparent',
-            color: 'white',
-            margin: '2px',
-            borderRadius: '8px'
-        }}
-    >
+    <button onClick={handleClick}>
       <i className={`fa fa-${getIconName()} fa-1x`}/> {getButtonText()}
     </button>
   );

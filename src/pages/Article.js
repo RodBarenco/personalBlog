@@ -70,7 +70,7 @@ const Article = ({ getArticleById }) => {
    
      <div className='shareOn'
        style={{
-        height: '100px',
+        height: '140px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -87,6 +87,8 @@ const Article = ({ getArticleById }) => {
        <ShareButton type="facebook" url={window.location.href} />
        <ShareButton type="whatsapp" url={window.location.href} />
        <ShareButton type="twitter" url={window.location.href} text={article.title} />
+       <ShareButton type="linkedin" url={window.location.href} />
+       <ShareButton type="reddit" url={window.location.href} text={article.title} />
        <ShareButton type="copy" url={window.location.href} />
       </div>
     </div>
