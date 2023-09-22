@@ -1,0 +1,117 @@
+.aboutPage{
+    background-color: #282737;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.aboutWrapper {
+    width: 60%;
+    height: 68vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+  }
+  
+.aboutTextArea {
+    width: 90%;
+    max-width: 800px;
+    color: black; /* Adicionei a cor do texto para melhor visibilidade */
+    padding: 20px;
+    margin: 25px;
+    border-radius: 50px;
+    z-index: 3;
+    background-color: transparent;
+    position: absolute;
+}
+.aboutTextArea h4 {
+    margin-top: 55px;
+}
+
+.lantern {
+    z-index: 2;
+    background-color: rgba(241, 246, 197, 0.374);
+    height: 300px;
+    width: 300px;
+    clip-path: circle(40%);
+    cursor: crosshair;
+}
+
+.lanternImg{
+    left: 0;
+    top: 0;
+    margin-right: 40px;
+    margin-top: -270px;
+    z-index: 8;
+    height: 500px;
+    width: 300px;
+
+}
+
+.animate__flash {
+    animation-duration: 4s; 
+}
+
+
+@media screen and (max-width: 769px) {
+    .lantern {
+        height: 0;
+        width: 0;
+    }
+
+    .lanternImg{
+        height: 0px;
+        width: 0px;
+        background-color: transparent;
+    }
+
+
+    .aboutPage{
+        background-color: #282737;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .aboutWrapper {
+        width: 80%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        margin: 0;
+      }
+
+      .aboutTextArea {
+        width: 90%;
+        max-width: 800px;
+        color: black; /* Adicionei a cor do texto para melhor visibilidade */
+        padding: 15px;
+        margin: 15px;
+        border-radius: 50px;
+        z-index: 3;
+        background-color: transparent;
+        position: static;
+    }
+
+    .aboutTextArea h4 {
+        margin-top: 30px;
+    }
+      
+
+  }
+  
+

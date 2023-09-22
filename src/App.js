@@ -69,7 +69,7 @@ function App() {
         <Route path="/" element={<Home postList={postList}/>} />
         <Route path="/articles" element={<InConstruction/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} mainUser={mainUser}/>} />
-        <Route path="/about" element={<InConstruction />} />
+        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact e1={e1} e2={e2} e3={e3}/>}/>
         <Route path="/projects" element={<Projects />} />
         {!isAuth ? <Route path="/addpost" element={<Home />}/> : <Route path="/AddPost" element={<AddPost />} />}
