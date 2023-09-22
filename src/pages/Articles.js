@@ -71,7 +71,7 @@ function Articles({ postList }) {
                   <span
                     className="expand-text"
                     onClick={() => navigate(`/article/${post.id}`)}
-                    style={{ marginLeft: '38px', cursor: 'pointer', marginRight: '38px' }}
+                    style={{ cursor: 'pointer', marginRight:'10px' }}
                   >
                     <i className="fa fa-search" />
                   </span>
