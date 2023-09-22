@@ -1,0 +1,97 @@
+.postContainerWrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.postContainerArticles {
+    height: 100vw;
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(17, 17, 14, 0.715);
+    color: white;
+    overflow-x: scroll;
+    bottom: 0;
+}
+
+.searchBar{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0,0,0);
+    background: -moz-linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
+    background: -webkit-linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
+    background: linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
+}
+
+.postArticles{
+ height: 55px;
+}
+@media screen and (max-width: 576px) {
+  .postArticles{
+    height: auto;
+  }
+}
+
+.postContainerArticles::-webkit-scrollbar {
+    background-color: transparent; 
+    width: 0;
+  }
+  
+  .postContainerArticles::-webkit-scrollbar-thumb {
+    background-color: transparent; 
+  }
+  
+  .postContainerArticles::-webkit-scrollbar-track {
+    background-color: transparent; 
+  }
+
+/* Estilo para a seção de pesquisa */
+.postContainerArticles > div:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilo para a lista de artigos */
+.postsFromArticles {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* Estilo quando o mouse passa por cima do artigo */
+.postArticles:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilo para o título do artigo */
+.postTitleFromArticles {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.postTitleFromArticles h2, h1 {
+    font-size: medium;
+    letter-spacing: 1.4px;
+    font-weight: 600;
+}
+
+
+.postDate{
+    color: yellow;
+    margin-left: 38px;
+    background-color: rgb(38, 38, 40);
+    font-size: 13px;
+}
+
+.postDate h4 {
+    font-size: 10px;
+}

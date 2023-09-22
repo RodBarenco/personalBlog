@@ -219,10 +219,12 @@
   /* Estilos para Extra Pequeno (XS) --------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 576px) {
  
-
+      .mainHome{
+        height: auto;
+      }
        .mainHome .hometext{
          width: 100%;
-         margin-top: 472px;
+         margin-top: 452px;
          margin-left: -45%;
        }
 

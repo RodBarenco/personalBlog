@@ -79,7 +79,7 @@ const ShareButton = ({ type, url, text }) => {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button className='shareButton' onClick={handleClick}>
       <i className={`fa fa-${getIconName()} fa-1x`}/> {getButtonText()}
     </button>
   );

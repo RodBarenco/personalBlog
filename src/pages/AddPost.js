@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
-import { addDoc, collection } from 'firebase/firestore';
+import { Timestamp, addDoc, collection } from 'firebase/firestore';
 import {  ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, auth, storage } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +14,8 @@ import '../styles/AddPost.css';
 function AddPost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [selectedColor, setSelectedColor] = useState('#ffffff'); // Inicialize com uma cor padrão
+  const [keyWords, setKeyWords] = useState('')
+  const [selectedColor, setSelectedColor] = useState('#ffffff'); 
   const [image, setImage] = useState(null);
   const postId = uuidv4(); 
   const fileName = `${postId}.jpg`
@@ -30,6 +31,10 @@ function AddPost() {
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
   };
+
+  const handleKeyWords = value => {
+    setKeyWords(value)
+  }
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -64,9 +69,11 @@ function AddPost() {
     }
     const post = {
         title,
+        date: Timestamp.now(),
         content,
         color: selectedColor,
         author: { name: auth.currentUser.displayName, id: auth.currentUser.uid},
+        keyWords,
         img : imageUrl,
     
       };
@@ -95,6 +102,8 @@ function AddPost() {
           Postar
         </button>
       </div>
+      <label>keyWords:</label>
+        <ReactQuill className='quill-title' theme="snow" value={keyWords} onChange={handleKeyWords} />
     </div>
   );
 }

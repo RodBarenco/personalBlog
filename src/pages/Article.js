@@ -16,7 +16,7 @@ const Article = ({ getArticleById }) => {
     const artcleErr = () => {
       setTimeout(() => {
         setTimeLoader(false);
-      }, 1200);
+      }, 1600);
     };
 
     artcleErr();

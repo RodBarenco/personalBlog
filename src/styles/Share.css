@@ -1,4 +1,4 @@
-button {
+.shareButton {
     height: 49px;
     background-color: transparent;
     color: white;
@@ -7,7 +7,7 @@ button {
 }
 
 @media screen and (max-width: 576px) {
-    button{
+    .shareButton{
       height: 44px;
       width: 85px;
       margin-top: 5px;

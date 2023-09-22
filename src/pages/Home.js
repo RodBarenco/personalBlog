@@ -312,10 +312,8 @@ export function Home({postList}) {
                        transition: "filter 1.8s ease-in-out",
                      }}
                      >
-                       {""}
                        <div className="postHeader">
-                         {""}
-                         {parse(DOMPurify.sanitize(post.title, { USE_PROFILES: { html: true } }))} 
+                         <h2>{parse(DOMPurify.sanitize(post.title, { USE_PROFILES: { html: true } }))}</h2>
                          <span
                             className="expand-text"
                             onClick={() => navigate(`/article/${post.id}`)}

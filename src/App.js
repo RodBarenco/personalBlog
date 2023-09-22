@@ -19,11 +19,15 @@ import { auth } from './firebase-config';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+
+  //who can login
   const mainUser = process.env.REACT_APP_MAIN_USER;
+  
+  // email js config
   const e1 = process.env.REACT_APP_E1;
   const e2 = process.env.REACT_APP_E2;
   const e3 = process.env.REACT_APP_E3;
-
+  
   const handleLogout = () => {
     signOut(auth).then(() => {
       localStorage.clear()
@@ -31,7 +35,9 @@ function App() {
       window.location.pathname="/"
     })
   }
-
+  
+  // posts are used in more than one page, so it ca get all of then to avoid unnecessary queries
+  // get all posted articles
   const [postList, setPostList] = useState([]);
   const postCollectionRef = collection(db, "posts");
 
@@ -43,7 +49,7 @@ function App() {
        getPosts();
    },[]);
 
-
+  //find a post by id
   const getArticleById = (articleId) => {
     return postList.find((post) => post.id === articleId);
   };
@@ -67,7 +73,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home postList={postList}/>} />
-        <Route path="/articles" element={<InConstruction/>} />
+        <Route path="/articles" element={<Articles postList={postList}/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} mainUser={mainUser}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact e1={e1} e2={e2} e3={e3}/>}/>
