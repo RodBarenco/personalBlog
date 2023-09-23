@@ -8,6 +8,7 @@ import '../styles/Contact.css';
 
 function Contact({ e1, e2, e3 }) {
     const [showPage, setShowPage] = useState(false);
+    window.scrollTo(0, 0);
        
     useEffect(() => {
         const timer = setTimeout(() => {
