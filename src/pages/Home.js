@@ -72,11 +72,13 @@ export function Home({postList}) {
       const diceElement = document.querySelector(".dice-action");
       const [diceTopPosition, setDiceTopPosition] = useState(12);
       const [isAnimating, setIsAnimating] = useState(false);
+      const [buttonWasCliked, setButtonWasClicked] = useState(false);
       const intervalIdRef = useRef(null);
     
       const playDice = () => {
         console.log("start animation");
         setIsAnimating(true);
+        setButtonWasClicked(true);
       
         const targetPositions = [1362, 1974, 2604, 3216];
         let currentPosition = 0;
@@ -183,7 +185,11 @@ export function Home({postList}) {
             
             <div className="startPlay">
               <h3>CLIQUE AQUI!</h3>
-              <button className="fa fa-solid fa-play fa-2x" onClick={playDice}></button>
+              <button
+                className={`fa fa-solid fa-play fa-2x ${buttonWasCliked ? 'disabled' : ''}`}
+                onClick={playDice}
+                disabled={buttonWasCliked}
+              ></button>
             </div>
 
             <div
