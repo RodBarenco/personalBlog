@@ -9,13 +9,33 @@ import '../styles/Articles.css';
 function Articles({ postList }) {
   let navigate = useNavigate();
   const [hoveredPostId, setHoveredPostId] = useState(null);
+  const [searchText, setSearchText] = useState("");
 
   return (
     <div className='postContainerWrapper'>
+      <div className="searchBar"> Pesquise por um tema
+        <input
+          type="text"
+          placeholder="escreva aqui..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button className="yellowbutton" onClick={() => setSearchText("")}>Limpar</button>
+      </div>
+
       <div className="postContainerArticles">
-        <div className="searchBar">ARTIGOS</div>
         <div className="postsFromArticles">
           {postList
+            .filter((post) => {
+              // all articles
+              if (searchText === "") {
+                return true;
+              }
+              // articles with key words
+              const strWords = post.keyWords;
+              const keywordArray = strWords.split(', ').map(word => word.toLowerCase());
+              return keywordArray.some(keyword => keyword.toLowerCase().includes(searchText.toLowerCase()));
+            })
             .sort((a, b) => (b.date && a.date ? b.date.seconds - a.date.seconds : 0))
             .map((post) => {
               const postDate = post.date ? new Date(post.date.seconds * 1000) : null;
@@ -77,7 +97,17 @@ function Articles({ postList }) {
                   </span>
                 </div>
               )
-            })}
+            })
+          }
+          {postList.length > 0 &&
+            postList
+              .filter((post) => {
+                const strWords = post.keyWords;
+                const keywordArray = strWords.split(', ').map(word => word.toLowerCase());
+                return keywordArray.some(keyword => keyword.toLowerCase().includes(searchText.toLowerCase()));
+              }).length === 0 && (
+                <div>Nenhum artigo encontrado.</div>
+              )}
         </div>
       </div>
     </div>

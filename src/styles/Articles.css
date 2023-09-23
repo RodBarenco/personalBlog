@@ -19,14 +19,56 @@
 
 .searchBar{
     height: 40px;
+    width: 83%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid rgba(248, 242, 183, 0.23);
+    border-radius: 3px;
+    color: rgb(154, 114, 6);
+    font-weight: 100;
     background: rgb(0,0,0);
     background: -moz-linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
     background: -webkit-linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
     background: linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
 }
+.searchBar input {
+    width: 38%;
+    height: 35px;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+@media screen and (max-width: 576px) {
+    .searchBar input {
+        width: 47%;
+        height: 32px;
+        margin-right: 6px;
+        margin-left: 6px;
+    }
+    .searchBar{
+        height: 36px;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(248, 242, 183, 0.23);
+        border-radius: 3px;
+        color: rgb(154, 114, 6);
+        font-weight: 100;
+        font-size: 12px;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
+        background: -webkit-linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
+        background: linear-gradient(91deg, rgba(0,0,0,1) 0%, rgba(20,19,1,1) 100%);
+    }
+    .searchBar .yellowbutton{
+       width: 50px;
+       margin-right: 3px;
+       padding: 4px;
+    }
+  }
+
+
 
 .postArticles{
  height: 55px;
