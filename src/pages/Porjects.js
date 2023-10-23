@@ -32,7 +32,7 @@ function Projects() {
       liveLink:"https://react-shopping-cart-zeta-five.vercel.app/",
       media: (
         <img
-          src={"https://media.licdn.com/dms/image/C4D22AQFVFWww8hE6JQ/feedshare-shrink_2048_1536/0/1671560851131?e=1697673600&v=beta&t=G2Ix97TUbmDc8H0ymKOHeaVVbC9kGlfQqeQtq50-vlw"}
+          src={"https://firebasestorage.googleapis.com/v0/b/personalblog-f1a20.appspot.com/o/img%2Fshoppingcart.jpeg?alt=media&token=bcc8ef8e-9ca3-4fe1-a9a6-93d966212ea9"}
           alt="Imagem do projeto"
           width={'85%'}      
           style={{
@@ -49,7 +49,7 @@ function Projects() {
       downloadLink: "https://drive.google.com/file/d/1lrSuMMKQ8N9GYxdhcRFh6Gi64nPZ50Dt/view",
       media: (
         <img
-          src={"https://media.licdn.com/dms/image/D4D22AQEioH3uNiOdhw/feedshare-shrink_2048_1536/0/1683988694422?e=1697673600&v=beta&t=9NrE7OvqhUGuW5Th1wLyw_i3nggdlBrUJVvqP5O-HkM"}
+          src={"https://firebasestorage.googleapis.com/v0/b/personalblog-f1a20.appspot.com/o/img%2Ftetris.jpeg?alt=media&token=2ded11ad-fa00-4a33-be8a-1bdf925ec658"}
           alt="Imagem do projeto"
           height={'27%'}
           width={'85%'}
@@ -99,7 +99,7 @@ function Projects() {
       link: "https://lnkd.in/dG9G5_JV",
       media: (
         <img
-          src="https://media.licdn.com/dms/image/D4D22AQHCzsVvaZaFUQ/feedshare-shrink_2048_1536/0/1681089358395?e=1697673600&v=beta&t=D5MNcdHtqF7rWX7lpDW_DsPGVYh0OOBIi-CfznqtVFE"
+          src="https://firebasestorage.googleapis.com/v0/b/personalblog-f1a20.appspot.com/o/img%2Ftodo.jpeg?alt=media&token=371f8b8e-f744-42e8-8a0e-1ce557f25192"
           alt="Imagem do projeto"
           width={'92%'} 
           height={'79%'}
@@ -117,7 +117,7 @@ function Projects() {
       liveLink: "https://www.barenco-dev.top/",
       media: (
         <img
-          src="https://media.licdn.com/dms/image/C4D22AQEiWlqAaVP2Dg/feedshare-shrink_1280/0/1673878260889?e=1697673600&v=beta&t=LilBjJaA-RUMgus5ZsjcTsn0kGaAfumB6VYXJjqvoBc"
+          src="https://firebasestorage.googleapis.com/v0/b/personalblog-f1a20.appspot.com/o/img%2Fportifolio.jpeg?alt=media&token=4212b69a-23c6-4bb1-aa64-d1d8b758e344"
           alt="Imagem do projeto"
           width={'92%'} 
           height={'79%'}
@@ -135,7 +135,7 @@ function Projects() {
       liveLink: "https://cardvalidationrocketseatlesson.vercel.app",
       media: (
         <img
-          src="https://media.licdn.com/dms/image/C4D22AQHl_ecOsUgfcw/feedshare-shrink_1280/0/1666668970470?e=1697673600&v=beta&t=cojQXML2xk5zVsmZLWA4PyOq5Isu7ihTcCajaavdNeI"
+          src="https://firebasestorage.googleapis.com/v0/b/personalblog-f1a20.appspot.com/o/img%2Fvalidador.jpeg?alt=media&token=a5fc0458-db0d-419f-a08f-098ff9d5b2aa"
           alt="Imagem do projeto"
           width={'92%'} 
           height={'79%'}

@@ -86,7 +86,7 @@ function App() {
        {/* Outro conteúdo */}
         <Cards />
        {/* Mais conteúdo */}
-    </div>
+      </div>
         
       <footer>
         <div className="footerText">
