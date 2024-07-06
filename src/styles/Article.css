@@ -21,14 +21,38 @@
 
   .contentExp {
     line-height: 1.6;
-    max-width: 860px;
+    max-width: 55%;
     margin: 0 auto;
     padding: 20px;
-  }
-  .titleExp {
+    overflow: hidden; 
+    overflow-wrap: break-word; 
+}
+
+.titleExp {
     line-height: 1.8;
-    max-width: 880px;
+    max-width: 60%;
     margin: 0 auto;
     text-align: center;
-  }
- 
+}
+
+/* Media query para tablets */
+@media (max-width: 1024px) {
+    .contentExp {
+        max-width: 70%;
+    }
+
+    .titleExp {
+        max-width: 70%;
+    }
+}
+
+/* Media query para celulares */
+@media (max-width: 600px) {
+    .contentExp {
+        max-width: 80%;
+    }
+
+    .titleExp {
+        max-width: 80%;
+    }
+}
